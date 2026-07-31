@@ -56,17 +56,6 @@ public class WarehouseRepository implements WarehouseStore, PanacheRepository<Db
     }
   }
 
-  /*@Override
-  @Transactional
-  public void archive(Warehouse warehouse) {
-
-    DbWarehouse entity = find("businessUnitCode", warehouse.businessUnitCode).firstResult();
-
-    if (entity != null) {
-      entity.archivedAt = LocalDateTime.now();
-    }
-  }*/
-
   @Override
   public Warehouse findByBusinessUnitCode(String businessUnitCode) {
     return find("businessUnitCode = ?1 and archivedAt is null", businessUnitCode)
